@@ -1,0 +1,8 @@
+# LaTeX
+*.aux
+*.log
+*.synctex.gz
+*.out
+
+# Python
+*.idea
