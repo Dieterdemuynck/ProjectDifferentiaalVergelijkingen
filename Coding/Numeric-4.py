@@ -1,6 +1,3 @@
-import numpy as np
-
-
 def duffing(coor, t, delta=0, m=1, k=1, beta=1):
     x, y = coor
     dx = y
@@ -64,7 +61,7 @@ def runge_kutta_4(func, start_val, step_size, start=0, end=50):
     return x, y
 
 
-def iterate(iterator, func, start_val, start_step=0.02, start=1, end=50):
+def iterate(iterator, func, start_val, start_step=0.001953125, start=1, end=50):
     x0, y0 = iterator(func, start_val, start_step, start, end)
     x1, y1 = iterator(func, start_val, start_step/2, start, end)
 
@@ -82,10 +79,8 @@ def iterate(iterator, func, start_val, start_step=0.02, start=1, end=50):
 
 
 if __name__ == "__main__":
-    start_vals = [(1, 0), (8, 0), (-6, 2)]
-
-    for start_val in start_vals:
-        print("START VALUE:", start_val)
-        print(iterate(euler, duffing, start_val))
-        print(iterate(euler_verbeterd, duffing, start_val))
-        print(iterate(runge_kutta_4, duffing, start_val))
+    start_val = [(1, 0)]
+    print("START VALUE:", start_val)
+    print(iterate(euler, duffing, start_val))
+    print(iterate(euler_verbeterd, duffing, start_val))
+    print(iterate(runge_kutta_4, duffing, start_val))
